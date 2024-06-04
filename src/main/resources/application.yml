@@ -1,3 +1,7 @@
 spring:
   application:
     name: secret-archive
+server:
+  port: 9898
+  servlet:
+    context-path: /secret-archive
