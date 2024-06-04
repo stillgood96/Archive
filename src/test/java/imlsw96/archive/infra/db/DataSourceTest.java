@@ -2,6 +2,7 @@ package imlsw96.archive.infra.db;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import com.zaxxer.hikari.HikariDataSource;
 import jakarta.persistence.EntityManagerFactory;
 import java.sql.SQLException;
 import javax.sql.DataSource;
@@ -28,6 +29,7 @@ public class DataSourceTest {
   @Test
   void testDataSource() throws SQLException {
     assertThat(dataSource).isNotNull();
+    assertThat(dataSource).isInstanceOf(HikariDataSource.class);
     assertThat(entityManagerFactory).isNotNull();
     assertThat(transactionManager).isNotNull();
     assertThat(transactionManager).isInstanceOf(JpaTransactionManager.class);
